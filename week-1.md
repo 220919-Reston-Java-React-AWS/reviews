@@ -62,6 +62,8 @@
             - copy file or directory
         - mv
             - move file or directory
+
+# SDLC
 * SDLC
     - Software development lifecycle
     - 6 core phases
@@ -87,24 +89,58 @@
         - Maintenance phase
             - Users may discover bugs that weren't found during testing phase that the development team must fix
             - Additional features may be planned for future releases based on customer suggestion, etc.
-* SDLC philosophies
-    - Waterfall
-        - Classic method of development
-        - Progress goes sequentially from one phase to another
-            - Cannot go back to a previous phase
-        - Phases are fully completed before moving to the next
-        - Advantages
-            - Simple model
-            - Easy to implement
-            - Phases are clearly defined
-            - Works well in short projects
-        - Disadvantages
-            - Not ideal for complex projects
-            - Time may be wasted since each phase needs to be completed before moving to the next
-            - Software product is not available for testing until later phases, which means bugs may not be caught until late in the development process
-    - Agile
-        - Revolves around putting customer needs first
-        - Focuses strongly on user experience and customer input
-            - Development is highly responsive to customer feedback
-            - Software is released in iterations to respond to a changing market
+* Waterfall
+    - Classic method of development
+    - Progress goes sequentially from one phase to another
+        - Cannot go back to a previous phase
+    - Phases are fully completed before moving to the next
+    - Advantages
+        - Simple model
+        - Easy to implement
+        - Phases are clearly defined
+        - Works well in short projects
+    - Disadvantages
+        - Not ideal for complex projects
+        - Time may be wasted since each phase needs to be completed before moving to the next
+        - Software product is not available for testing until later phases, which means bugs may not be caught until late in the development process
+* Agile
+    - Revolves around putting customer needs first
+    - Focuses strongly on user experience and customer input
+        - Development is highly responsive to customer feedback
+        - Software is released in iterations to respond to a changing market
+        - Requires a strong team with excellent communication
+    - 4 core values of Agile
+        - Individuals and interactions over processes and tools
+        - Working software over comprehensive documentation
+        - Customer collaboration over contract negotiation
+        - Responding to change over following a plan
+    - Advantages
+        - Provides a responsive approach to development of software
+        - Enhances flexiblity / agility
+    - Disadvantages
+        - If not implemented properly, inadequate documentation can hinder knowledge transfer to new members on the development team
+        - Having a less rigid model compared to waterfall can lead to disorganization if team members are not good at self-organization
+    - Agile user stories
+        - Format
+            - `As a <role>`
+            - `I want <goal>`
+            - `So that <benefit>`
+        - Acceptance Criteria
+            - Conditions that must be met for a user story to be considered complete in terms of functionality
+        - Example user story:
+            - As an account manager
+            - I want a sales report of my account sent to my inbox daily
+            - So that I can monitor the sales progress of my customer portfolio
+            - Acceptance criteria:
+                - The report is sent to my inbox daily
+                - The report contains the following sales details: ...
+                - The report is in csv format
+        - Requirements are written from the perspective of the user to keep the development team in line with customer needs and wants
+    - Agile standup meeting
+        - 15 minute meeting
+        - Occurs daily in the morning
+        - Each team member talks about
+            - What they worked on the previous day
+            - What they will work on today
+            - What issues/blockers/problems they are running into
         
