@@ -1,0 +1,110 @@
+# Week 1 Review
+* Fullstack Overview
+    - Full stack refers to the entire depth of a system
+        - Frontend + backend
+    - Frontend: Refers to the visible part of the application on browsers / mobile devices, etc.
+        - Built using HTML, CSS, JS
+    - Backend: refers to servers, databases, and internal architecture that drives the application
+        - Customer or end user usually never directly interacts with this realm directly
+    - Fullstack developers are versed in both disciplines
+        - Versatile enough to work on both frontend and backend
+        - Organizations value fullstack developers since it's often necessary to have team members who understand how the entire system works together
+* Operating Systems
+    - Common OSes
+        - Windows
+        - Mac OS X
+        - Linux
+    - Kernel: program at the core of an OS
+        - Has full control over hardware resources
+        - Performs arbitration between different processes that are running
+        - Provides abstraction between applications and the hardware
+    - Process management
+        - Process: an application in execution
+            - Executed sequentially according to code instructions for that program
+            - When a program is started, it becomes a process
+            - 5 different states: Start, Ready, Running, Waiting, Terminated
+    - Threads
+        - A thread is a flow of execution within a process
+        - A thread keeps track of all the instructions that need to be executed next
+        - Also contains all of the current variables being worked with and the execution history (stack memory)
+    - Scheduling
+        - OS process manager is responsible for scheduling when each process gets execution time on the CPU
+        - OS thread scheduler is responsible for scheduling when each thread within a process gets executed (for multi-threaded applications)
+    - Memory Management
+        - OS manages RAM
+        - Processes are allocates space on RAM
+        - OS also handles file IO (writing and reading from a disk)
+* Unix Style commands
+    - Unix is an old operating system on which many modern systems are built
+        - Linux is inspired by Unix (although they're not the same thing)
+    - Commands
+        - pwd
+            - current directory
+        - ls
+            - list files + directories
+        - cd
+            - change directory
+        - mkdir
+            - make new directory
+        - touch
+            - make new blank file
+        - cat
+            - output contents of file
+        - echo
+            - print to console arguments passed in
+        - grep
+            - search for string in file/string input
+        - diff
+            - compare differences between files
+        - rm
+            - remove file or directory
+        - cp
+            - copy file or directory
+        - mv
+            - move file or directory
+* SDLC
+    - Software development lifecycle
+    - 6 core phases
+        - Requirements phase
+            - Defining what an application is supposed to do
+            - Defining what resources are required for the project
+        - Design phase
+            - Modeling how an application will be put together
+            - Architecture, UI, platform, programming paradigms, networking, security, databases
+        - Implementation phase
+            - Writing of code
+            - Large project may be tackled by multiple teams
+            - Version control system often used such as **Git**
+        - Testing phase
+            - Making sure an application is working correctly according to the requirements
+            - Manual OR automated
+            - Testing helps reduce # of bugs/glitches in application
+        - Deployment phase
+            - Application is made available to users
+            - Manual or automated
+            - DevOps is a modern process that is helpful for automation of deployment
+            - Deployment can be complex if there are many different systems and/or distributed architecture, etc.
+        - Maintenance phase
+            - Users may discover bugs that weren't found during testing phase that the development team must fix
+            - Additional features may be planned for future releases based on customer suggestion, etc.
+* SDLC philosophies
+    - Waterfall
+        - Classic method of development
+        - Progress goes sequentially from one phase to another
+            - Cannot go back to a previous phase
+        - Phases are fully completed before moving to the next
+        - Advantages
+            - Simple model
+            - Easy to implement
+            - Phases are clearly defined
+            - Works well in short projects
+        - Disadvantages
+            - Not ideal for complex projects
+            - Time may be wasted since each phase needs to be completed before moving to the next
+            - Software product is not available for testing until later phases, which means bugs may not be caught until late in the development process
+    - Agile
+        - Revolves around putting customer needs first
+        - Focuses strongly on user experience and customer input
+            - Development is highly responsive to customer feedback
+            - Software is released in iterations to respond to a changing market
+        
