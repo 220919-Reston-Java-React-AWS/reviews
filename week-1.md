@@ -253,3 +253,21 @@
     - `||` OR
         - false || false -> false
         - everything else is true
+* Strings
+    - Are objects in Java, not primitives
+    - Sequences of characters
+    - Immutable (when a String object is created in memory, its characters cannot be changed)
+    - Double quotes represent string literals
+    - Common string methods
+        - `.equals(Object o)`
+        - `.charAt(int index)`
+        - `.concat(String s)`
+        - `.contains(CharSequence cs)`
+        - `.toCharArray()`
+        - `.substring(x, y)`
+        - `.length()`
+        - `.split(regex)`
+        - `.toLowerCase()`
+        - `.toUpperCase()`
+        - `.trim()`
+* Arrays
