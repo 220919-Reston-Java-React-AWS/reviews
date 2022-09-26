@@ -284,5 +284,37 @@
             - `[10, 20, 30, 40, 50]`
         - `int[] myInts = {10, 20, 30, 40, 50}`
             - Same as above, but without using `new int[]`
+* Classes and Objects
+    - Classes are blueprints for creating objects in memory
+        - Classes are named with CamelCase convention
+        - Fields and methods are named with lowercase camelCase
+    - Objects represent real world entities / things
+        - Objects possess properties (fields) + behaviors (methods)
+        - An object is created using a constructor defined in a class
+            - `new` keyword is used
+        - Objects can be referred to via reference variables
+        - `ex. Person p = new Person("Pablo", "Trainer");`
+* Object class
+    - Ultimate parent class of all objects
+    - Every object in Java inherits the fields/methods defined in the Object class
+    - If a class does not explicitly inherit another class using the `extends` keyword, it will automatically directly inherit the Object class
+    - Important methods
+        - toString(): returns a String that represents the object, which will also be printed out if System.out.println is used to print the object
+            - `className@hashCode` by default
+        - equals(): compares object to another to determine equality
+            - `==` by default
+            - Often overridden to compare properties of two objects
+        - hashCode(): creates a hash identifier for an object that is useful for collections such as HashSet or HashMap
+* Classes v. Objects
+    - Classes are blueprints for objects
+        - A class is declared once
+    - Objects are instances of a class
+        - Multiple (as many as required) objects can be created from a single class
+* Scanner class
+    - Used to create Strings from an external source
+    - Often used to read from text files or to accept input from the console
+    - Console is represented by System.in (standard input)
+    - `Scanner sc = new Scanner(System.in)`
+# Pillars of OOP
 
 
