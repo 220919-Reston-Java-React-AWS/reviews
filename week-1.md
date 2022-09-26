@@ -409,12 +409,66 @@
         - To create an unchecked exception
             - Create a class that extends RuntimeException
 - Reading the stack trace
-    - 
+    - The stack trace is an error message that appears whenever an exception that is not being handled crashes the program (or exceptionObject.printStackTrace() is used)
+    - The structure of the stack trace looks like the call stack at the moment the exception occurred
+        - The method at the top of the call stack is the method that threw the exception
+        - The exception will propagate down the call stack until it reaches a method that has a try-catch block for that exception
+
 # Pillars of OOP
 - Inheritance
     - Enables a class to gain the features (fields + methods) of another class and expand upon those if necessary
+    - Establishes an IS-A relationship
     - Inheritance helps to minimize redundancies in code since related classes can have a parent/super class that contains shared characteristics
     - `extends` keyword is used to indicate the parent class of a class being defined
     - In Java, only a single class can be inherited. However, the parent class can also inherit from a class, creating a hierarchy
-
-
+    - Terminologies
+        - Subclass (child class)
+        - Superclass (parent class)
+- Polymorphism
+    - Means "many forms"
+    - Methods can take on different forms via method overloading + overriding
+    - Method overriding
+        - Where a method in the parent class is redefined in a child class
+        - Used to provide a specific implementation of a method already provided in the parent class
+        - Overriding is known as runtime polymorphism
+            - While the program is running, the JVM figures out which method to use
+        - Overriding rules
+            - Child class method has the same name as the parent class method
+            - Same parameters
+            - Same return type (or covariant type)
+            - Same access modifiers (or more accessible)
+    - Method overloading
+        - Where two or more methods in the same class have the same name
+            - Overloading helps to simplify the number of method names
+            - Ex. in Java
+                - System.out.println(...)
+                - println(int x)
+                - println(double x)
+                - println(String str)
+                - println(char c)
+                - ...
+        - Overloading is known as compile-time polymorphism
+        - Rules
+            - Methods are in same class
+            - Same name
+            - Different number of parameters and/or type of parameters
+- Abstraction
+    - "Hiding implementation details"
+    - "Taking something concrete and turning it into an idea"
+        - Ex. Dog and Cat are both "Animals"
+        - Ex. CombustionCar and ElectricCar are both Car
+        - Ex. Circle and Triangle are both Shape
+    - Abstraction is accomplished through abstract classes and interfaces
+    - Abstract class
+        - Can contain abstract methods
+        - Also can have non-abstract methods
+        - Cannot be instantiated
+    - Interfaces
+        - Can only have abstract methods (until Java 8 introduced the default keyword)
+            - default keyword allows for the defining of non-abstract methods in interfaces
+        - Cannot instantiate an interface
+        - fields in an interface are public static final implicitly
+        - methods in an interface are public abstract implicitly
+    - A class can extend only one class (whether abstract or concrete)
+    - A class can implement as many interfaces as desired
+    
