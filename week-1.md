@@ -35,7 +35,7 @@
     - OS manages RAM
     - Processes are allocates space on RAM
     - OS also handles file IO (writing and reading from a disk)
-* Unix Style commands
+- Unix Style commands
     - Unix is an old operating system on which many modern systems are built
         - Linux is inspired by Unix (although they're not the same thing)
     - Commands
@@ -65,7 +65,7 @@
             - move file or directory
 
 # SDLC
-* SDLC
+- SDLC
     - Software development lifecycle
     - 6 core phases
         - Requirements phase
@@ -90,7 +90,7 @@
         - Maintenance phase
             - Users may discover bugs that weren't found during testing phase that the development team must fix
             - Additional features may be planned for future releases based on customer suggestion, etc.
-* Waterfall
+- Waterfall
     - Classic method of development
     - Progress goes sequentially from one phase to another
         - Cannot go back to a previous phase
@@ -104,7 +104,7 @@
         - Not ideal for complex projects
         - Time may be wasted since each phase needs to be completed before moving to the next
         - Software product is not available for testing until later phases, which means bugs may not be caught until late in the development process
-* Agile
+- Agile
     - Revolves around putting customer needs first
     - Focuses strongly on user experience and customer input
         - Development is highly responsive to customer feedback
@@ -173,7 +173,7 @@
     - `git log` to view newly created commit
     - `git push` to push commit to remote repository
 
-# Java
+# Java Fundamentals
 - High level programming language
 - Features
     - Highly object oriented
@@ -201,7 +201,7 @@
     - JVM: Java Virtual Machine
         - Runs byte code and issues instructions to the machine on how to run the program
             - Contains a JIT (Just in Time) compiler that reads byte code line by line and issues low-level commands to the computer while program is running
-* Primitive Types
+- Primitive Types
     - 8 primitives
         - byte
             - 8 bit integer values
@@ -219,7 +219,7 @@
             - "f"
         - double
             - 64 bit floating point values
-* Control Flow
+- Control Flow
     - If statement: used to execute a block of code if true
         - else if: is another if statement chained to a previous that will run if the previous was false
         - else: runs if if, and all else ifs are false
@@ -238,7 +238,7 @@
     - Break and continue
         - Used to exit a loop without further evaluation
         - Continue used to stop execution of current block and proceed to the next block
-* Boolean expressions
+- Boolean expressions
     - `==` Check equality of two values
         - For primitive variables, checks whether values are equal
         - For reference variables, checks whether the two variables are pointing to the same object
@@ -253,7 +253,7 @@
     - `||` OR
         - false || false -> false
         - everything else is true
-* Strings
+- Strings
     - Are objects in Java, not primitives
     - Sequences of characters
     - Immutable (when a String object is created in memory, its characters cannot be changed)
@@ -270,7 +270,7 @@
         - `.toLowerCase()`
         - `.toUpperCase()`
         - `.trim()`
-* Arrays
+- Arrays
     - A contiguous block of memory that stores a group of sequentially stored elements of the same type
     - Fixed in size: once an array is created, its size cannot be changed
     - Arrays can be used for both primitive and object types
@@ -284,7 +284,7 @@
             - `[10, 20, 30, 40, 50]`
         - `int[] myInts = {10, 20, 30, 40, 50}`
             - Same as above, but without using `new int[]`
-* Classes and Objects
+- Classes and Objects
     - Classes are blueprints for creating objects in memory
         - Classes are named with CamelCase convention
         - Fields and methods are named with lowercase camelCase
@@ -294,7 +294,7 @@
             - `new` keyword is used
         - Objects can be referred to via reference variables
         - `ex. Person p = new Person("Pablo", "Trainer");`
-* Object class
+- Object class
     - Ultimate parent class of all objects
     - Every object in Java inherits the fields/methods defined in the Object class
     - If a class does not explicitly inherit another class using the `extends` keyword, it will automatically directly inherit the Object class
@@ -305,17 +305,17 @@
             - `==` by default
             - Often overridden to compare properties of two objects
         - hashCode(): creates a hash identifier for an object that is useful for collections such as HashSet or HashMap
-* Classes v. Objects
+- Classes v. Objects
     - Classes are blueprints for objects
         - A class is declared once
     - Objects are instances of a class
         - Multiple (as many as required) objects can be created from a single class
-* Scanner class
+- Scanner class
     - Used to create Strings from an external source
     - Often used to read from text files or to accept input from the console
     - Console is represented by System.in (standard input)
     - `Scanner sc = new Scanner(System.in)`
-* Methods
+- Methods
     - Functions attached to classes/objects that can be called at different times to run as necessary
     - Methods have
         - inputs (parameters/arguments)
@@ -323,7 +323,7 @@
         - code block (contains logic that should be executed within the method)
     - Method signature
         - `<access modifier> <optional non-access modifier(s)> <return type> methodName(<optional parameter(s)>) { }`
-* Packages
+- Packages
     - A way to organize classes
     - Related classes are typically placed together in a package
     - Naming convention of packages is "reverse domain naming"
@@ -334,7 +334,7 @@
         - However, subpackages can be seen/treated as totally different packages
     - Whenever a class in a different package needs to utilize a class in another package, `importing` is needed
         - `import` keyword is used to make another class from a different package accessible inside of the class that needs it
-* Variable Scopes
+- Variable Scopes
     - Where a variable exists in memory
     - 4 variable scopes in Java
         - Static scope
@@ -352,31 +352,6 @@
         - Block scope
             - A variable that is scoped to a block of code in a method
             - When the block of code is done executing, the variable is destroyed
-
-# Memory Managemnet
-- Call Stack
-    - Keeps track of execution in a program
-    - When a method is executed, it is placed on top of the call stack
-    - When the method is done executing, it is popped off the call stack
-    - All methods that are in the call stack are in the process of execution, with the method at the top of the call stack the one that is actively being executed line by line
-    - Each method is a "stack frame"
-    - Stack frame contains all of the method scoped / block scoped variables currently
-- Heap
-    - Contains objects
-    - Reference variables (such as method/block scoped variables) in the call stack contain the memory address location of an object in the heap
-    - A special location in the heap called the **string pool** is used to store string literal objects
-        - A string literal may be used multiple times in an application such as `"hello"`, but only one object will exist in the string pool for that
-- Garbage Collection
-    - De-allocation of memory that objects occupy is performed by the garbage collector
-    - When an object no longer has any references, the garbage collector will destroy the object and free up the memory the object was occupying
-    - Garbage collector is a piece of software that runs in the background on a periodic basis
-    - The JVM schedules when the garbage collector runs
-        - We do not have control over this process
-        - It is not possible to force garbage collection to run
-    - We can request the JVM to run the garbage collector
-        - `System.gc()`
-        - `System.runFinalize()`
-        - `Runtime.getRuntime().gc()`
 - Throwables (Exceptions and Errors)
     - Objects that can be thrown and caught
         - Both Exceptions and Errors can be thrown and caught, but it's not recommended to catch Errors
@@ -413,6 +388,44 @@
     - The structure of the stack trace looks like the call stack at the moment the exception occurred
         - The method at the top of the call stack is the method that threw the exception
         - The exception will propagate down the call stack until it reaches a method that has a try-catch block for that exception
+- Access modifiers
+    - From most restrictive to least:
+        - private: can only be accessible within the same class
+        - default: can only be accessible within the same package
+        - protected: within the same package + subclasses in any package
+        - public: anywhere
+- Non-access modifiers
+    - static
+    - abstract
+    - final
+        - final method: cannot be overridden
+        - final class: cannot be extended
+        - final variable: value cannot be changed
+
+# Memory Managemnet
+- Call Stack
+    - Keeps track of execution in a program
+    - When a method is executed, it is placed on top of the call stack
+    - When the method is done executing, it is popped off the call stack
+    - All methods that are in the call stack are in the process of execution, with the method at the top of the call stack the one that is actively being executed line by line
+    - Each method is a "stack frame"
+    - Stack frame contains all of the method scoped / block scoped variables currently
+- Heap
+    - Contains objects
+    - Reference variables (such as method/block scoped variables) in the call stack contain the memory address location of an object in the heap
+    - A special location in the heap called the **string pool** is used to store string literal objects
+        - A string literal may be used multiple times in an application such as `"hello"`, but only one object will exist in the string pool for that
+- Garbage Collection
+    - De-allocation of memory that objects occupy is performed by the garbage collector
+    - When an object no longer has any references, the garbage collector will destroy the object and free up the memory the object was occupying
+    - Garbage collector is a piece of software that runs in the background on a periodic basis
+    - The JVM schedules when the garbage collector runs
+        - We do not have control over this process
+        - It is not possible to force garbage collection to run
+    - We can request the JVM to run the garbage collector
+        - `System.gc()`
+        - `System.runFinalize()`
+        - `Runtime.getRuntime().gc()`
 
 # Pillars of OOP
 - Inheritance
@@ -471,4 +484,16 @@
         - methods in an interface are public abstract implicitly
     - A class can extend only one class (whether abstract or concrete)
     - A class can implement as many interfaces as desired
+- Encapsulation
+    - Enclosing data and methods into a single unit (class)
+        - Fields and methods interact with each other within an object created from a class
+        - Methods can access and/or modify the value of the fields
+    - Data-hiding is a best practice for encapsulation
+        - Used to prevent other developers from modifying values in ways that are not intended by the original creator of a class
+            - ex. age should only be incremented, not decreased for a Person object
+        - Use access modifiers (private, default, protected, public) to restrict access
+        - Typically, fields should be restricted as much as reasonably possible
+    - Getter/setter methods
+        - Getter methods: used to access a property via a method
+        - Setter methods: used to set a property via a method
     
