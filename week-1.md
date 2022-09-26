@@ -315,6 +315,106 @@
     - Often used to read from text files or to accept input from the console
     - Console is represented by System.in (standard input)
     - `Scanner sc = new Scanner(System.in)`
+* Methods
+    - Functions attached to classes/objects that can be called at different times to run as necessary
+    - Methods have
+        - inputs (parameters/arguments)
+        - outputs (returned value)
+        - code block (contains logic that should be executed within the method)
+    - Method signature
+        - `<access modifier> <optional non-access modifier(s)> <return type> methodName(<optional parameter(s)>) { }`
+* Packages
+    - A way to organize classes
+    - Related classes are typically placed together in a package
+    - Naming convention of packages is "reverse domain naming"
+        - `com.revature`
+        - lowercase
+    - Subpackages are packages inside of another package
+        - `com.revature.model`
+        - However, subpackages can be seen/treated as totally different packages
+    - Whenever a class in a different package needs to utilize a class in another package, `importing` is needed
+        - `import` keyword is used to make another class from a different package accessible inside of the class that needs it
+* Variable Scopes
+    - Where a variable exists in memory
+    - 4 variable scopes in Java
+        - Static scope
+            - Also known as global scope
+            - A field with the static non-access modifier applied to it is a static scope variable
+            - A static field belongs to the class itself, not objects of the class
+        - Instance scope
+            - A variable scoped to individual objects
+                - Each object has its own independent value for that variable
+            - A non-static field is an instance variable
+        - Method scope
+            - A variable that is scoped to a method
+            - Variables declared in a method are method scoped variables
+            - They are destroyed when the method is done executing
+        - Block scope
+            - A variable that is scoped to a block of code in a method
+            - When the block of code is done executing, the variable is destroyed
+
+# Memory Managemnet
+- Call Stack
+    - Keeps track of execution in a program
+    - When a method is executed, it is placed on top of the call stack
+    - When the method is done executing, it is popped off the call stack
+    - All methods that are in the call stack are in the process of execution, with the method at the top of the call stack the one that is actively being executed line by line
+    - Each method is a "stack frame"
+    - Stack frame contains all of the method scoped / block scoped variables currently
+- Heap
+    - Contains objects
+    - Reference variables (such as method/block scoped variables) in the call stack contain the memory address location of an object in the heap
+    - A special location in the heap called the **string pool** is used to store string literal objects
+        - A string literal may be used multiple times in an application such as `"hello"`, but only one object will exist in the string pool for that
+- Garbage Collection
+    - De-allocation of memory that objects occupy is performed by the garbage collector
+    - When an object no longer has any references, the garbage collector will destroy the object and free up the memory the object was occupying
+    - Garbage collector is a piece of software that runs in the background on a periodic basis
+    - The JVM schedules when the garbage collector runs
+        - We do not have control over this process
+        - It is not possible to force garbage collection to run
+    - We can request the JVM to run the garbage collector
+        - `System.gc()`
+        - `System.runFinalize()`
+        - `Runtime.getRuntime().gc()`
+- Throwables (Exceptions and Errors)
+    - Objects that can be thrown and caught
+        - Both Exceptions and Errors can be thrown and caught, but it's not recommended to catch Errors
+        - Exceptions: something that is reasonably expected to occur and can be recovered from through exception handling (catching the exception)
+        - Errors: something that is fatal to the application working properly and cannot be recovered from
+            - ex. OutOfMemoryError, StackOverflowError
+    - Throwable hierarchy
+        - Throwable class
+            - Error class
+            - Exception class
+                - Classes that extend Exception directly (checked exceptions)
+                - RuntimeException
+                    - Classes that extend RuntimeException (unchecked exceptions)
+    - Checked v. Unchecked exceptions
+        - Checked exceptions require mandatory handling/declaring
+            - Checked exceptions are exceptions that directly extend the Exception class and NOT RuntimeException
+            - Declaring an exception: `throws` keyword in the method signature is used to indicate that the method will pass responsibility of handling the checked exception to another method that invokes this method
+            - Handling an exception: try-catch
+        - Unchecked exceptions are not required to be handled or declared
+            - However, it is still recommended to handle unchecked exceptions
+            - If you do not, then it will result in the program crashing
+        - Handling exceptions
+            - try block: risky code is placed in a try block
+            - catch block: if an exception occurs in the try block, the corresponding catch block will be executed
+                - There can be multiple catch blocks per try block to specify all of the different exceptions that may occur
+            - finally block: always runs at the end regardless of whether the try block finishes successfully without an exception OR if an exception occurs and the catch block must run
+    - Creating custom exceptions
+        - To create a checked exception
+            - Create a class that extends Exception
+        - To create an unchecked exception
+            - Create a class that extends RuntimeException
+- Reading the stack trace
+    - 
 # Pillars of OOP
+- Inheritance
+    - Enables a class to gain the features (fields + methods) of another class and expand upon those if necessary
+    - Inheritance helps to minimize redundancies in code since related classes can have a parent/super class that contains shared characteristics
+    - `extends` keyword is used to indicate the parent class of a class being defined
+    - In Java, only a single class can be inherited. However, the parent class can also inherit from a class, creating a hierarchy
 
 
