@@ -1,39 +1,40 @@
 # Week 1 Review
-* Fullstack Overview
-    - Full stack refers to the entire depth of a system
-        - Frontend + backend
-    - Frontend: Refers to the visible part of the application on browsers / mobile devices, etc.
-        - Built using HTML, CSS, JS
-    - Backend: refers to servers, databases, and internal architecture that drives the application
-        - Customer or end user usually never directly interacts with this realm directly
-    - Fullstack developers are versed in both disciplines
-        - Versatile enough to work on both frontend and backend
-        - Organizations value fullstack developers since it's often necessary to have team members who understand how the entire system works together
-* Operating Systems
-    - Common OSes
-        - Windows
-        - Mac OS X
-        - Linux
-    - Kernel: program at the core of an OS
-        - Has full control over hardware resources
-        - Performs arbitration between different processes that are running
-        - Provides abstraction between applications and the hardware
-    - Process management
-        - Process: an application in execution
-            - Executed sequentially according to code instructions for that program
-            - When a program is started, it becomes a process
-            - 5 different states: Start, Ready, Running, Waiting, Terminated
-    - Threads
-        - A thread is a flow of execution within a process
-        - A thread keeps track of all the instructions that need to be executed next
-        - Also contains all of the current variables being worked with and the execution history (stack memory)
-    - Scheduling
-        - OS process manager is responsible for scheduling when each process gets execution time on the CPU
-        - OS thread scheduler is responsible for scheduling when each thread within a process gets executed (for multi-threaded applications)
-    - Memory Management
-        - OS manages RAM
-        - Processes are allocates space on RAM
-        - OS also handles file IO (writing and reading from a disk)
+# Fullstack Overview
+- Full stack refers to the entire depth of a system
+    - Frontend + backend
+- Frontend: Refers to the visible part of the application on browsers / mobile devices, etc.
+    - Built using HTML, CSS, JS
+- Backend: refers to servers, databases, and internal architecture that drives the application
+    - Customer or end user usually never directly interacts with this realm directly
+- Fullstack developers are versed in both disciplines
+    - Versatile enough to work on both frontend and backend
+    - Organizations value fullstack developers since it's often necessary to have team members who understand how the entire system works together
+
+# Operating Systems
+- Common OSes
+    - Windows
+    - Mac OS X
+    - Linux
+- Kernel: program at the core of an OS
+    - Has full control over hardware resources
+    - Performs arbitration between different processes that are running
+    - Provides abstraction between applications and the hardware
+- Process management
+    - Process: an application in execution
+        - Executed sequentially according to code instructions for that program
+        - When a program is started, it becomes a process
+        - 5 different states: Start, Ready, Running, Waiting, Terminated
+- Threads
+    - A thread is a flow of execution within a process
+    - A thread keeps track of all the instructions that need to be executed next
+    - Also contains all of the current variables being worked with and the execution history (stack memory)
+- Scheduling
+    - OS process manager is responsible for scheduling when each process gets execution time on the CPU
+    - OS thread scheduler is responsible for scheduling when each thread within a process gets executed (for multi-threaded applications)
+- Memory Management
+    - OS manages RAM
+    - Processes are allocates space on RAM
+    - OS also handles file IO (writing and reading from a disk)
 * Unix Style commands
     - Unix is an old operating system on which many modern systems are built
         - Linux is inspired by Unix (although they're not the same thing)
@@ -143,4 +144,112 @@
             - What they worked on the previous day
             - What they will work on today
             - What issues/blockers/problems they are running into
-        
+
+# Git
+- Version control system
+    - Version control: the practice of tracking and managing code changes in a project
+        - Save changes to project (creating new versions)
+        - Revert to old versions of project
+    - Version control systems are tools that facilitate the process of version control
+    - Git is the most popular VCS
+- Repository types
+    - Local repository
+        - Local copy on your computer
+    - Remote repository
+        - Copy that exists on a repository hosting website (such as Github, Gitlab, BitBucket, etc.)
+- File states
+    - Modified
+        - A file has been changed, added, or deleted but the modification has not been staged
+    - Staged
+        - A modified file is ready to be committed
+    - Committed
+        - Staged files have been saved to the local repository
+- Git commands
+    - `git init` to create a new local repository
+    - `git remote add` to link the local repository with a remote repository
+    - `git clone` to create a local repository that is a copy of an already existing remote repository (ex. a repository that already exists on Github)
+    - `git status` to view status of the repository and to see modified files and/or files ready to be committed
+    - `git commit` to commit changes to local repository
+    - `git log` to view newly created commit
+    - `git push` to push commit to remote repository
+
+# Java
+- High level programming language
+- Features
+    - Highly object oriented
+    - Strongly typed: values are not implicitly converted between types
+    - Strictly typed: variables are declared with a type that cannot be changed
+- Benefits
+    - Write once run anywhere
+    - Widely used w/ extensive 3rd party libraries + frameworks that are open source
+    - Automatic memory management
+- Disadvantages
+    - Can be inefficient w/ memory management at times
+    - All users must have a JRE installed on the computer to run Java programs
+    - Forces OOP to be used
+    - Takes time to compile code before it can be run
+    - Licensing
+- JDK v. JRE v. JVM
+    - JDK: Java Development Kit
+        - Contains a **compiler** that turns source code into byte code
+        - DevTools, debugger, documentation tools, etc.
+        - JRE
+    - JRE: Java Runtime Environment
+        - Built-in libraries
+            - ex. String class, System class, Math class, collections API, etc.
+        - JVM
+    - JVM: Java Virtual Machine
+        - Runs byte code and issues instructions to the machine on how to run the program
+            - Contains a JIT (Just in Time) compiler that reads byte code line by line and issues low-level commands to the computer while program is running
+* Primitive Types
+    - 8 primitives
+        - byte
+            - 8 bit integer values
+        - short
+            - 16 bit integer values
+        - char
+            - 16 bit unicode characters
+        - int
+            - 32 bit integer values
+        - long
+            - 64 bit integer values
+            - "L"
+        - float
+            - 32 bit floating point values
+            - "f"
+        - double
+            - 64 bit floating point values
+* Control Flow
+    - If statement: used to execute a block of code if true
+        - else if: is another if statement chained to a previous that will run if the previous was false
+        - else: runs if if, and all else ifs are false
+    - While loop
+        - runs a block of code repeatedly while a specified condition is true
+    - Do-while loop
+        - runs a block of code first, and then evaluates a condition to see if it's true before looping again 
+        - Do-while loops are guaranteed to run at least once
+    - For loop
+        - A loop with 3 parts
+        - Declaration block: create a "counter" variable
+        - Conditional block: runs loop if condition is true
+        - Increment block: used to change the counter variable's value (could also be used for decrementing)
+    - Switch statements
+        - Use a specified variable and match its value against various "cases"
+    - Break and continue
+        - Used to exit a loop without further evaluation
+        - Continue used to stop execution of current block and proceed to the next block
+* Boolean expressions
+    - `==` Check equality of two values
+        - For primitive variables, checks whether values are equal
+        - For reference variables, checks whether the two variables are pointing to the same object
+    - `>` Greater than
+    - `<` Less than
+    - `>=` Greater than or equal to
+    - `<=` Less than or equal to
+    - `!` Reverse value of boolean
+    - `&&` AND
+        - true && true -> true
+        - everything else is false
+    - `||` OR
+        - false || false -> false
+        - everything else is true
