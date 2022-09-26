@@ -661,3 +661,7 @@
 - Library that allows us to set up a Java-based HTTP server
 - Server can listen for HTTP requests, process the requests, and provide an HTTP response
 - Jackson Databind is a dependency used alongside Javalin in order to de-serialize JSON into Java objects + serialize Java objects into JSON
+- Javalin utilizes an embedded HTTP server (Jetty)
+- A Javalin object is used as a handle on the server
+    - `Javalin app = Javalin.create()`
+    - Endpoints can be mapped using `app.get("/myendpoint", (ctx) -> {})`, or post, put, patch, delete
