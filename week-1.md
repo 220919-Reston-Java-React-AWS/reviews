@@ -401,6 +401,11 @@
         - final method: cannot be overridden
         - final class: cannot be extended
         - final variable: value cannot be changed
+- Generics
+    - Specify types as parameters
+    - Allows us to avoid type-safety issues (ClassCastException)
+    - Enforces type checking for methods
+    - Commonly used with collections to specify type stored in a collection
 
 # Memory Managemnet
 - Call Stack
@@ -496,4 +501,119 @@
     - Getter/setter methods
         - Getter methods: used to access a property via a method
         - Setter methods: used to set a property via a method
+
+# Maven
+- Dependency manager and build tool
+    - `pom.xml` file
+        - Contains the settings for the Maven project
+        - Dependencies utilized as listed in the pom.xml and automatically downloaded
+        - Plugins can also be configured when using Maven to build the project
+    - Dependency manager: when writing Java applications, many external libraries may be used
+        - Maven helps to automatically download + manage those dependencies
+    - Build tool: when writing Java applcations, before deploying the application, the project must be built
+        - build: the process of creating a build artifact
+        - build artifact: a deployable file representing the application such as a .jar file
+    - Directory structure:
+        - `src/main/java`: where project source code should go
+        - `src/main/resources`: where any custom configuration files and other resources go
+        - `src/test/java`: where automated test code goes
+        - `src/test/resources`: where any resources that support the test code go
     
+# JUnit
+- A unit testing framework for Java
+    - Can be included into our project via Maven (putting the dependencies into the pom.xml file)
+    - A way to help us structure test cases
+        - `@Test` annotation
+            - Method is treated as a test case
+        - Annotations
+            - @Test
+            - @BeforeAll
+            - @AfterAll
+            - @BeforeEach
+            - @AfterEach
+        - Assertions
+            - Give JUnit the ability to fail a test if expected does not match equal
+            - Assertions.assertEquals(expected, actual)
+            - Assertions.assertTrue(boolean)
+            - Assertions.assertFalse(boolean)
+            - Assertions.assertArrayEquals([] expected, [] actual)
+            - Assertions.assertNull(...)
+            - Assertions.fail()
+
+# Collections API
+- Collection hierarchy
+    - Iterable interface
+        - Collection interface
+            - List interface
+                - ArrayList class
+                - LinkedList class
+                - Vector class
+            - Queue interface
+                - LinkedList class
+                - PriorityQueue class
+            - Set interface
+                - HashSet class
+                - TreeSet class
+    - Map interface (not part of the Collection interface hierarchy)
+        - HashTable class
+        - HashMap class
+        - TreeMap class
+- Collections class
+    - A utility class that contains static methods that are useful for operating on collections
+    - Collections.sort(myList)
+    - Collections.sort(myList, Collections.reverseOrder())
+- Java's implementation of common data structures
+    - List
+        - Data stored in sequential order and accessible by an index
+        - Size can be expanded unlike an Array
+        - Two common types
+            - ArrayList
+                - Uses an array behind the scenes
+                - When the array runs out of space, a new array is created that is 1.5x the size of the old array
+                - Elements from old array are copied over
+            - LinkedList
+                - Uses node objects linked to each other
+                - Each node stores a single value and links to the previous and next node
+        - Primary operations
+            - .add(E element)
+            - .add(int index, E element)
+            - .set(int index, E element)
+            - .get(int index)
+            - .remove(int index)
+            - .remove(E element)
+            - .size()
+            - .clear()
+            - .contains(E element)
+    - Set
+        - Collection of unique values
+            - No elements have the same value
+        - No indexing (elements cannot be retrieve via an index)
+        - Primary operations
+            - .add(E element)
+            - .contains(E element)
+            - .remove(E element)
+            - .size()
+            - .clear()
+        - HashSet
+            - No inherent ordering
+        - TreeSet
+            - Has an inherent ordering based on smallest to largest when iterating over the TreeSet
+    - Map
+        - Collection of key-value pairs
+        - Key should be an immutable datatype such as a String
+        - Value can be anything
+        - Primary operations
+            - .get(K key)
+            - .put(K key, E value)
+            - .containsKey(K key)
+            - .size()
+            - .clear()
+    - Queue
+        - Collection of elements in FIFO order
+        - Elements are added to the end of the queue, elements are removed from the front
+        - Primary operations
+            - .offer(E element)
+            - .poll()
+            - .peek()
+            - .size()
+            - .clear()
