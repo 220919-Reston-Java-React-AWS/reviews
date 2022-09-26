@@ -271,3 +271,18 @@
         - `.toUpperCase()`
         - `.trim()`
 * Arrays
+    - A contiguous block of memory that stores a group of sequentially stored elements of the same type
+    - Fixed in size: once an array is created, its size cannot be changed
+    - Arrays can be used for both primitive and object types
+    - Ways to create an array
+        - `int[] myInts = new int[5];`
+            - Creates an array of size 5
+            - `[0, 0, 0, 0, 0]`
+        - `int[] myInts = new int[] {10, 20, 30, 40, 50};`
+            - Creates an array of size 5
+            - Pre-populates with values
+            - `[10, 20, 30, 40, 50]`
+        - `int[] myInts = {10, 20, 30, 40, 50}`
+            - Same as above, but without using `new int[]`
+
+
