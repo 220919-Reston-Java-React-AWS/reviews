@@ -617,3 +617,47 @@
             - .peek()
             - .size()
             - .clear()
+
+# HTTP
+- HyperText Transfer Protocol
+    - Protocol: standard for network communication
+    - HTTP is the most common protocol for communication on the internet
+- HTTP communication process
+    1. Client sends an HTTP request to the server
+        - HTTP request is requesting the server to provide some information back to the client or to process information provided by the client in the request
+            - ex. A client requests that the server retrieves all reimbursement information
+            - ex. A client requests that the server adds a reimbursement
+            - ex. A client requests that the server approves/denies an reimbursement
+    2. Server process the request and sends an HTTP response to the client
+- HTTP Request
+    - VERB (GET, POST, PUT, PATCH, DELETE)
+    - URI (/reimbursements)
+    - Request Body
+        - Usually contains JSON data
+    - Headers (key-value pairs)
+- HTTP Response
+    - Response Body
+        - Usually contains JSON data
+    - Status Code (1XX, 2XX, 3XX, 4XX, 5XX)
+        - 1XX informational
+        - 2XX success
+        - 3XX redirect
+        - 4XX client-side error
+        - 5XX internal server-side error
+    - Response Headers (key-value pairs)
+- HTTP verbs
+    - GET
+        - Retrieve resources from server
+    - POST
+        - Add resource to server
+    - PUT
+        - Fully replace a resource
+    - PATCH
+        - Partially replace a resource
+    - DELETE
+        - Delete a resource
+
+# Javalin
+- Library that allows us to set up a Java-based HTTP server
+- Server can listen for HTTP requests, process the requests, and provide an HTTP response
+- Jackson Databind is a dependency used alongside Javalin in order to de-serialize JSON into Java objects + serialize Java objects into JSON
