@@ -47,3 +47,19 @@
         - SELECT: reads information from a table without changing it (used for data retrieval, often known as "queries")
         - UPDATE: changes the value of data already present in the database
         - DELETE: removes a row/record or multiple rows/records at once, possible to use DELETE to achieve same functionality as TRUNCATE, but not recommended
+- Data Query Language (DQL)
+    - This is a highly debated sublanguage
+    - Some schools of thought say that DQL is a separate sublanguage from DML
+    - Others say it doesn't exist
+    - Or some classify it as a sub-sublanguage
+    - Command: SELECT (see SELECT in DML above)
+- Data Control Language (DCL)
+    - Security functionality for who and what can access your data with what permissions. It usually revolves around users, granting users access to just querying (read-only access), while others can use all DML statements but no DDL, etc.
+    - Commands: GRANT, REVOKE
+- Transaction Control Language (TCL)
+    - Represents control over the functionality for transactions. A transaction is a group of DML commands that need to either all run or all fail together
+    - Commands:
+        - COMMIT: will end a transaction after ensuring all changes can be made successfully
+        - SAVEPOINT: sets the state of the database we will return to if a following command should fail. When we START or BEGIN a transaction, the savepoint is automatically set
+        - ROLLBACK: aborts transaction returning to a savepoint
+        - START/BEGIN: dialect dependent. Indicates the following commands are part of a transaction and sets the initial SAVEPOINT
