@@ -63,3 +63,88 @@
         - SAVEPOINT: sets the state of the database we will return to if a following command should fail. When we START or BEGIN a transaction, the savepoint is automatically set
         - ROLLBACK: aborts transaction returning to a savepoint
         - START/BEGIN: dialect dependent. Indicates the following commands are part of a transaction and sets the initial SAVEPOINT
+
+## Postgres Datatypes
+- Datatypes are consistent between SQL dialects
+- Most dialects will have datatypes that hold similar values, but might be named DIFFERENTLY
+- Datatypes are constraints placed on a column
+- Postgres Common Datatypes
+    - BOOLEAN: allowed to be null/empty as well as true/false
+    - VARCHAR(x): Variable number of characters like Strings in Java. X is the maximum number of characters allowed
+    - INTEGER: Whole number integer values
+    - NUMERIC(x, y): Floating point numbers, "x" is the precision which represents the number of digits allowed. "y" is the scale which represent how many of those digits come after the decimal
+    - DATE: Calendar Date
+    - TIMESTAMP: Price moment in time
+
+## SQL Constraints
+- Constraints are rules or conditions that enforce consistency on the values of a column. They also can be used to define relationships between tables. They can be attached to a single column or multiple columns
+- Examples:
+    - UNIQUE: no duplicate values in the column
+        - NULLS are not counted
+    - NOT NULL: a column that cannot have a NULL value. When inserting a new record, the column must be filled or the INSERT statement will fail
+    - CHECK: this allows for a logical check that can be defined to further constrain the column. You can CHECK a column is never less than 0, to ensure no negative values, for example
+    - PRIMARY KEY (PK): Combines the UNIQUE and NOT NULL to ensure this value is unique to each record in the table and thus every record can be individually accessed/referenced in that table
+        - The PK is used to serve as a unique identifier for a record
+    - FOREIGN KEY (FK): Indicates a column in one table references a value in another table. This is how relationships are created between tables
+        - Postgres uses REFERENCES to establish FKs
+
+## Cardinality/Multiplicity
+- 3 types of multiplicity
+    - 1:1 (one to one)
+        - An individual record in one table is associated with a single record in another table
+        - UNIQUE FK column
+        - The FK can be on either table
+    - 1:n (one to many) / n:1 (many to one)
+        - An individual record in one table can be referenced by multiple records in another table
+        - Achieved by having a FK column that is not-unique in the "many" table
+        - ex. User table, Reimbursements table
+            - A user can have many reimbursements
+            - Reimbursement table will have a FK column to refer to the user each reimbursement belongs to
+    - n:n (many to many)
+        - An individual record may be associated with many records in another table, and records in that table may be associated with many records in the first table
+        - The use of a third table, called a junction table, can be used to establish the many to many relationship
+
+## SQL Joins
+- When creating a query (SELECT statement), you can combine multiple tables based on a logical relationship between columns. The majority of the time it is a FK to PK relationship
+- Joins create a temporary table that displays information requested across tables
+- Join Types
+    - INNER JOIN: selects records to display only if there is matching data from both tables
+    - LEFT JOIN: The first table will display all records and any matching data from the right table will be displayed. IF a record has no relation from the left table, the right table will appear as null
+    - RIGHT JOIN: Same as left but reverses the tables
+    - OUTER JOIN (FULL): Shows all records from both tables, combining where there is a relationship
+    - SELF JOINs: a table can be joined with itself. Ex. employees table may have a FK to the employee's boss id
+
+## SQL Subqueries
+- Subqueries are queries made inside other queries. Since a SELECT statement returns a temporary table, you can then run an additional query on the returned temporary table
+- In order to avoid ambiguity in these types of situations, "aliases" are often used
+    - Alias: a temporary name assigned to a table to easily identify the table (uses the AS keyword)
+
+## SQL Set Operations
+- These are ways to manipulate the temporary tables returned by a query statement
+- They do not make changes to the underlying data
+- Commands
+    - ORDER BY: sorts the returned records based on the values in a column or columns
+        - ASC (ascending) or DESC (descending) are built in functionalities to determine the order in which the data is presented
+    - GROUP BY: take data in the table and group the values that are having an aggregate function performed on them; the function then returns for that group or that subsection of the table instead of the whole table
+        - HAVING: is used with GROUP BY to determine the condition that defines the groups
+    - UNION: will stack tables together. Will match tables with the same number of columns into a single table, putting records from both into that single table
+
+## SQL Scalar and Aggregate Functions
+- Pre-built functions in an SQL dialect. All SQL dialects will have at least some of these built in
+- Some dialects will have the ability to create custom functions in a programmatic expansion to SQL (Postgres has PLpg/SQL), which are different than the functions we are talking about
+- Scalar Functions
+    - These are functions that act on each record in a table and return a value for them individually
+    - Thus, we can say they return a value for each record
+    - Examples
+        - UPPER(): makes VARCHAR all uppercase
+        - LOWER(): makes VARCHAR all lowercase
+        - FLOOR(): makes a floating number into a whole number by rounding down
+        - CEIL(): makes a floating number into a whole number by rounding up
+        - ROUND(): rounds a floating number to the nearest integer
+- Aggregate Functions
+    - These take multiple records and return a single value. These include lots of mathematical functions
+        - SUM()
+        - AVG()
+        - MIN()
+        - MAX()
+        - COUNT()
