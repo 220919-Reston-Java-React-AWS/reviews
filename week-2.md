@@ -148,3 +148,20 @@
         - MIN()
         - MAX()
         - COUNT()
+
+## SQL Transaction Properties
+- ACID
+    - Atomicity: All or nothing, all statements that are part of the transaction must either succeed or fail
+    - Consistency: Maintaining relationships between tables (referential integrity) so that there will never to a reference to something that doesn't exist. Also, maintaining the constraints on data in each column
+    - Isolation: Transactions run independent from one another. No transaction should rely on another transaction to function. Isolation is achieved via **isolation levels**
+    - Durability: Changes committed to the database by transactions should persist even after the computer is shut down, loses power, etc. since the data should be committed to the disk rather than existing only in temporary random-access memory (RAM)
+- Isolation problems
+    - Dirty Reads: a transaction reads data that is in the process of being changed by another transaction that eventually reverts
+    - Non-repeatable Reads: Data that is read twice during a transaction that ends up reading different values because a second transaction committed a change to that record in the middle of the first transaction
+    - Phantom Reads: One transaction is reading a set of records and during that transaction process another transaction commits, changing the number of records involved
+- Isolation Levels
+    - Read uncommitted: no protection whatsoever
+    - Read committed: transactions only read committed data. Protects against dirty reads, but not other problems
+    - Repeatable reads: Transactions cannot read data from records in the process of being manipulated by another transaction. Prevents dirty reads + non-repeatable reads
+    - Serializable: All data is serialized so only one transaction can access the data even in a group of data at a time. This prevents all problems (dirty reads, non-repeatable reads, phantom reads)
+    - SET TRANSACTION allows you to set the isolation level
