@@ -165,3 +165,80 @@
     - Repeatable reads: Transactions cannot read data from records in the process of being manipulated by another transaction. Prevents dirty reads + non-repeatable reads
     - Serializable: All data is serialized so only one transaction can access the data even in a group of data at a time. This prevents all problems (dirty reads, non-repeatable reads, phantom reads)
     - SET TRANSACTION allows you to set the isolation level
+
+## Database Normalization
+- Normalization is a process of organizing a database with the goal of reducing redundancies
+- There are various "normalization forms", which are standards/guidelines on how to organize data
+- Normal forms
+    - 1NF (1st normal form)
+        - Must have a primary key
+        - Ensure no repeating groups of data
+            - May require creating another table, establishing a relationship with the previous table
+    - 2NF (2nd normal form)
+        - All columns must be describing the ENTIRE primary key
+        - 2NF is already reached if you are in 1NF and you have no composite primary keys
+            - composite primary key: a primary key consisting of 2 or more columns instead of 1
+    - 3NF (3rd normal form)
+        - Columns must ONLY describe the primary key and not other columns in the table
+        - We cannot have any column indirectly describing the primary key
+        - ex. if we have student_id, zipcode, city
+            - city is also describing the zipcode, which means if one were to change, both would need to change (not good)
+- Summary
+    - You must have a key (and reduce data redundancies): 1st normal form
+    - Columns must describe the entire key (composite primary key): 2nd normal form
+    - Columns must describe nothing but the primary key (3rd normal form)
+
+# JDBC
+- Java Database Connectivity
+- Part of the runtime libraries included w/ the JRE
+- The purpose of JDBC is to provide the ability to connect to the database and modifying and/or querying data in the database
+    - Utilizes SQL DML statements to do so (CRUD operations)
+        - INSERT
+        - SELECT
+        - UPDATE 
+        - DELETE
+- Classes and interfaces
+    - DriverManager class: used to manage the SQL driver for a particular dialect, so that JDBC can communicate with that particular dialect, AND is used to create a Connection object
+        - Connection interface: represents a connection to the database, and used to create Statement or PreparedStatement objects
+            - Statement interface: Executes "raw" SQL queries, and DOES NOT protect against SQL injection attacks that a malicious user may attempt to have the system execute
+            - PreparedStatement interface: Executes a SQL query using a pre-defined template with a series of placeholders for values to be filled out
+            - CallableStatement interface: provides a way to execute SQL stored procedures / user defined functions
+                - ResultSet interface: represents the data from a SELECT statement that can be iterated through for data to be extracted
+    - SQLException class: All exceptions that come from JDBC by this single class. It is a checked exception, which means it must be declared OR handled
+
+# REST
+- REpresentational State Transfer
+- REST describes an architectural style for creating "web services" (aka backend applications)
+- REST API is a backend application following RESTful conventions
+
+## Resources
+- REST deals with the representation of data in the form of resources
+    - An API's resources should be identified using a URI (uniform resource identifier)
+        - ex. `/users`
+- Operations can be performed on those resources
+    - An API should perform operations on resources in the form of HTTP methods
+    - HTTP methods:
+        - POST (C): Send data to the API
+        - GET (R): Retrieve data from the API
+        - PUT (U): Fully replace a resource in the API
+        - PATCH (U): Partially replace a resource in the API
+        - DELETE (D): Delete a resource in the API
+- Singleton and Collection resources
+    - "customers" is a collection resource
+    - "customer" is a singleton resource
+    - We identify a collection resource using URI `/customers`
+    - We identify a singleton resource using URI `/customers/{customerId}`
+- Sub-collection resources
+    - Certain resources belong in a hierarchy
+    - To identify all accounts that belong to a customer (banking app)
+        - URI `/customers/{customerId}/accounts`
+- Best Practices for URIs
+    - lowercase URIs
+    - Use "/" to indicate hierarchies
+    - Do not use a trailing "/" at the end
+        - Ex. do not do `/users/`
+    - Filtering data, use query components to match certain conditions
+        - `/reimbursements?status=approved`
+    - Avoid file extensions at the end of the URI
+        - `/user-profile.html` (bad)
+        - `/user-profile` (good)
