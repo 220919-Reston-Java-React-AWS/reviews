@@ -194,8 +194,31 @@
 - Often used when a complex query needs to be consistently accessible
 - `CREATE VIEW view_name AS <query>`
 
-## PL/pgsql
-- 
+## PL/pgSQL
+- PL/pgSQL is a procedural programming language inside of Postgres
+    - Includes programming functionalities including loops, conditional statements, etc. to be used with Postgres databases
+    - Enables the creation of functions, blocks of reusable code that can manipulate the database and perform other programming functionality
+- Advantages
+    - Works well with SQL
+    - Can help scale applications by centralizing processing
+- Disadvantages
+    - May not be portable to other RDBMSes
+    - Can be difficult to manage/learn
+- PL/pgSQL can be used to create
+    - User defined functions
+        - Not to be confused with scalar/aggregate functions that are already built-in
+        - Can return a value
+        - `CREATE FUNCTION function_name(param1 type, param2 type, ...) RETURNS type LANGUAGE plpgsql AS $$ DECLARE BEGIN END; $$;`
+    - Procedure
+        - Does not return any value
+        - `CREATE PROCEDURE procedure_name(param1 type, param2 type, ...) LANGUAGE plpgsql as $$ BEGIN END; $$;`
+- Triggers
+    - A trigger invokes a specified function whenever an INSERT, UPDATE, or DELETE event occurs
+    - Can be specified to run BEFORE or AFTER the event
+    - Two types: row and statement level triggers
+        - If 20 rows are updated, a row level trigger will run 20 times, while a statement level trigger runs once
+    - `CREATE TRIGGER trigger_name <BEFORE or AFTER> <INSERT or UPDATE or DELETE> ON table_name FOR EACH ROW EXECUTE PROCEDURE function_name`
+    - `CREATE FUNCTION trigger_function() RETURNS TRIGGER LANGUAGE plpgsql AS $$ BEGIN RETURN NEW END; $$;`
 
 # JDBC
 - Java Database Connectivity
