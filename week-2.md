@@ -275,7 +275,7 @@
         - `/user-profile.html` (bad)
         - `/user-profile` (good)
 
-## Unit Testing
+# Unit Testing
 - Testing individual units (methods) in isolation
 - Utilize testing frameworks such as JUnit 5 (Jupiter) to write and execute unit tests
 - AAA pattern
@@ -291,3 +291,15 @@
     - Unless you mock the other objects being used, you would not be performing unit testing in such a situation
         - Ex. UserService utilizes UserRepository, so UserRepository should be mocked
     - `Mockito` is a library developed for Java that enables the mocking of objects
+
+## Authentication v. Authorization
+- Authenticaiton: Identifying the user is who they say they are
+    - Login
+        - Username + Password
+        - Two factor authentication
+- Authorization: Checking to see if the user, who is already identified, is allowed to access something
+    - Ex. logged in as employee
+        - NOT authorized to view all reimbursements from the system
+        - Authorized to view their own reimbursements
+    - Ex. logged in as a manager
+        - Authorized to view all reimbursements in the system
