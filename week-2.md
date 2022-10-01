@@ -188,6 +188,15 @@
     - Columns must describe the entire key (composite primary key): 2nd normal form
     - Columns must describe nothing but the primary key (3rd normal form)
 
+## SQL Views
+- Views are structures in a database that are essentially **virtual tables**. The virtual tables don't actually store any data, but instead read data from other tables
+- Views are essentially queries saved into the database
+- Often used when a complex query needs to be consistently accessible
+- `CREATE VIEW view_name AS <query>`
+
+## PL/pgsql
+- 
+
 # JDBC
 - Java Database Connectivity
 - Part of the runtime libraries included w/ the JRE
@@ -242,3 +251,20 @@
     - Avoid file extensions at the end of the URI
         - `/user-profile.html` (bad)
         - `/user-profile` (good)
+
+## Unit Testing
+- Testing individual units (methods) in isolation
+- Utilize testing frameworks such as JUnit 5 (Jupiter) to write and execute unit tests
+- AAA pattern
+    - Arrange: Set up required components for testing, such as instantiating an object that contains the methods you're testing
+        - ex. `UserService us = new UserService();`
+    - Act: Invoke the method being tested, passing in necessary inputs for a particular outcome to occur, and receive the output
+        - ex. `User actual = us.getUserById(10);`
+    - Assert: Check to see if the actual result is what is expected
+        - ex. `User expected = new User(1, "bach_tran", "pass12345");`
+            - `Assertions.assertEquals(expected, actual);`
+- Mocking
+    - If the method being tested is invoking another method, it would imply that not only is that method being executed, but also the code in the other methods as well
+    - Unless you mock the other objects being used, you would not be performing unit testing in such a situation
+        - Ex. UserService utilizes UserRepository, so UserRepository should be mocked
+    - `Mockito` is a library developed for Java that enables the mocking of objects
