@@ -133,47 +133,103 @@ someElement.addEventListener("click", () => {/* Some behavior */}, true);
 * It will execute from the parent element down to the child element
 ![alt text](https://github.com/220919-Reston-Java-React-AWS/reviews/blob/main/img/Events.png)
 
-# Classes
+# OOP in JS
+## Classes
 * As you know, templates for creating objects
 * Didn't use to exist which made things weird and divided some communities in JS
     * Essentially some people say to never use it because it's inefficient or error prone
     * Some people say to use it because it makes looking at your code easier to read (you should see example of how JS used to implement class-like things using just functions (spoiler alert: it looks gross))
-* Has most of the OOP pillars we discussed and implements them easily except abstraction
+* Has most of the OOP pillars we discussed and implements them easily except abstraction and polymorphism
+## Inheritance
+* It is achieved by using "extends" keyword
+* Similar to how Java works, it will inherit all the class members
+## Encapsulation
+* **Access modifiers** doesn't exist in JS
+* However, using a "#" syntax before a field name will give it "private" behavior
+* You must then use getter/setter to have better control of your private field
+```JS
+class Animal {
+    #someVar;
+
+    get SomeVar(){
+        return #someVar;
+    }
+
+    set SomeVar(param){
+        this.#someVar = param;
+    }
+}
+```
+## Polymorphism
+* A pillar that doesn't really work well in JS
+* You cannot have method or constructor overloading
+    * Method overriding is possible
+* JS does not allow same method names but different parameters
+* However, you can use default parameters (it still doesn't follow polymorphism, but it can at least emulate it a bit)
+```JS
+//Adding a "=" syntax within the parameter will give it a default value
+//This will prevent param to hold a undefined datatype
+function someFunction(param = "Default"){
+
+}
+```
+## Abstraction
+* A pillar that doesn't really work well in JS
+* Interfaces or abstract classes does not exist in JS
+* To force an interface-like functionality, you must explicitly give an error if the user tried to make an object that doesn't have all the properties
+* If you want to see how to implement interface-like functionality use duck typing method. NOTE: you don't need to learn this
+```JS
+// example duck typing method
+var someMethod = function(obj /*, method list as strings */){
+    var i = 1, someName;
+    while((someName = arguments[i++])){
+        if(typeof obj[someName] != 'function') {
+            return false;
+        }
+    }
+    return true;
+}
+
+// in your code
+if(someMethod(obj, 'quak', 'flapWings','waggle')) {
+    //  IT'S A DUCK, do your duck thang
+}
+```
+
 
 # Introduction to sending and receiving data in JS
-## AJAX
-* Asynchronous JS and XML
-* Used to grab information only with XML type backend server hence the name
-    * But they want ahead and updated the object to also include JSON to be relevant
 ## Fetch
-* Similar to AJAX except less syntaxes or prepping needed to call on backend
-* Main difference from AJAX is it uses promises to achieve asynchrnous operations
-### Promises
-* Represents either the completion or failure of an asynchronous operation
-* Allows you to "setup" what to do after a completion of a promise and get its result and also account for a failure of a promise and what to do using "then()".
+* A way to interact with a restful API
+* It will fetch resources across the network using HTTP protocol
+* It will give a response object in a form of a promise
 
-## Nice to know with JS
-### Scopes
-* The scope of a variable determines where it has access to
-* Block
-    * Cannot be access from outside {}
-    ```JS
-    {
-        let x = 2;
-    }
-    //Anything outside cannot see that x variable
-    ```
-* Function scope
-    * Each function you create is a new scope
-    * Kinda like methods in C# in that variables created in the function only stays in that function
-* Function scope
-    * Can be access anywhere in JS
-    * Var keyword that will give variable a global scope
-    ```JS
-    {
-        var x = 2;
-    }
-    //Anything outside this block scope still has access to x because it is functional scope
-    ```
-* let keyword limits the scope of the variable depending on where it was declared
-    * Mostly use "let" to try your best to avoid conflicting variable names
+## Promises
+* Represents either the completion or failure of an asynchronous operation and gives the resulting value
+* Allows you to "setup" what to do after a completion of a promise and get its result and also account for a failure of a promise and what to do.
+* then() method will execute if the promise was successful
+* catch() method will execute if the promise gave an error
+* finally() method will execute regardless of the outcome of the promise
+
+## Async & Await
+* An extension of promises. Another way to handle asychronous operations in JS
+* Instead of using the pre-made methods to handle promises, we can use an async function and then use await
+* Await will store the result of the promise regardless of if it was  successful or not
+* Async is needed to use await but async doesn't need await to work
+```JS
+async function someName() {
+    //This variable will now "wait" until it gets information from the promise
+    let someVar = await somePromise();
+
+    //Any other code below here will have to wait until the promise resolves
+}
+```
+
+# More JavaScript
+## Spread Operator
+* It will spread the array or string into its individual elements
+* Useful for combining two or more arrays together
+* Useful to pass in as a parameter in a function that requires multiple parameters and have each element be map into the individual parameters
+
+## Rest Parameter
+* Used to create a function that will have indefinite amount of parameters
+* It acts as an array within the function and can be used with array methods such as .forEach()
