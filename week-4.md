@@ -28,7 +28,7 @@
 * A way to stop making your website looking like it came from the 90s
 
 ## CSS Terminologies/Anatomy
-![alt text](http://url/to/img.png)
+![alt text](https://github.com/220919-Reston-Java-React-AWS/reviews/blob/main/img/CSS%20Anatomy.png)
 
 ## CSS Selectors
 * Before applying styles everywhere, we need a way to select specific or group of HTMl elements first so we give them their own type of look
@@ -82,7 +82,7 @@ div > p > span {
 * Great for us to move elements around the page to a specific location that we want
 * From inner to outer:
     Content > Padding > Border > Margin
-![alt text](http://url/to/img.png)
+![alt text](https://github.com/220919-Reston-Java-React-AWS/reviews/blob/main/img/CSS%20Box.png)
 * I would look into css flexbox to really help with positioning things in your website. Unfortunately, we don't have to cover it but it is really useful.
     * https://css-tricks.com/snippets/css/a-guide-to-flexbox
 
@@ -131,7 +131,7 @@ someElement.addEventListener("click", () => {/* Some behavior */}, true);
 ## Capturing Event
 * Opposite of Bubbling
 * It will execute from the parent element down to the child element
-![alt text](http://url/to/img.png)
+![alt text](https://github.com/220919-Reston-Java-React-AWS/reviews/blob/main/img/Events.png)
 
 # Classes
 * As you know, templates for creating objects
